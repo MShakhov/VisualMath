@@ -5,8 +5,6 @@
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jsPlumb/1.4.1/jquery.jsPlumb-1.4.1-all-min.js"></script>
-    <script src="js/DragAndDrop/interact.js"></script>
-    <script src="js/DragAndDrop/toolbar.js"></script>
 	<script src="js/bootstrap/js/bootstrap.js"></script>
 	<link rel="stylesheet" href="css/main.css">
 	<link href="js/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
@@ -138,12 +136,12 @@ jsPlumb.ready(function() {
 	if(id == "div") cl = "glyphicon glyphicon-italic";
 	if(id == "temp") cl = "glyphicon glyphicon-search";
 	
-	var newAgent = $('<div>').attr('id', e.currentTarget.getAttribute("id") + i).addClass('project');
-	var newSpan = $('<span>').attr('id', "span" + e.currentTarget.getAttribute("id") + i).addClass(cl);
-	
+	var newAgent = $('<div>').attr('id', id + i).addClass('project');
+	var newSpan = $('<span>').attr('id', "span" + id + i).addClass(cl);
+	newAgent.text(id + i);
 	$('#workzone').append(newAgent);
-	$('#' + e.currentTarget.getAttribute("id") + i).append("<br>");
-	$('#' + e.currentTarget.getAttribute("id") + i).append(newSpan);
+	$('#' + id + i).append("<br>");
+	$('#' + id + i).append(newSpan);
 
     jsPlumb.draggable(newAgent, {
       containment: 'parent'
